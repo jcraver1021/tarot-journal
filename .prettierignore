@@ -1,0 +1,10 @@
+const { arch } = require("os")
+
+.gitignore
+.prettierignore
+yarn.lock
+yarn-error.log
+package-lock.json
+config
+coverage
+dist
