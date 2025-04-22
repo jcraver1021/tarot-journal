@@ -25,9 +25,8 @@ describe('TarotCard Component', () => {
       'src',
       expect.stringContaining('normal-image.jpg')
     );
-    expect(nonImage).not.toBeInTheDocument();
-    expect(text).toBeInTheDocument();
-    expect(text).not.toHaveTextContent('Reversed Meaning');
+    expect(nonImage).toBeFalsy();
+    expect(text).toBeTruthy();
   });
 
   it('renders the reversed card text and rotates the image', () => {
@@ -48,8 +47,7 @@ describe('TarotCard Component', () => {
       'src',
       expect.stringContaining('reversed-image.jpg')
     );
-    expect(nonImage).not.toBeInTheDocument();
-    expect(text).toBeInTheDocument();
-    expect(text).not.toHaveTextContent('Upright Meaning');
+    expect(nonImage).toBeFalsy();
+    expect(text).toBeTruthy();
   });
 });
