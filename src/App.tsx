@@ -2,6 +2,7 @@ import {useState} from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import TarotCard from './components/TarotCard/TarotCard';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +25,22 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+      </div>
+      <div>
+        <TarotCard
+          isReversed={true}
+          uprightText="The Fool"
+          reversedText="The Fool (Reversed)"
+          image="/card/rw/00-TheFool.png"
+        />
+      </div>
+      <div>
+        <TarotCard
+          isReversed={false}
+          uprightText="The Magician"
+          reversedText="The Magician (Reversed)"
+          image="/card/rw/01-TheMagician.png"
+        />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
