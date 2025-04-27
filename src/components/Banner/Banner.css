@@ -1,0 +1,20 @@
+.banner {
+  align-items: top-center;
+  justify-content: center;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bannerText {
+  position: relative;
+  z-index: 1;
+  background-color: #8b4f39;
+  color: #ffffff;
+  font-size: 72px;
+  font-weight: bold;
+}
