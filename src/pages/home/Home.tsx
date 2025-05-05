@@ -1,5 +1,5 @@
 import './Home.css';
-import Banner from '../components/Banner/Banner';
+import Banner from '../../components/Banner/Banner';
 
 function Home() {
   // want:
