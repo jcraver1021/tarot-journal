@@ -38,7 +38,7 @@ export function useGetShuffledCards(
         .sort(() => Math.random() - 0.5); // Yes, a Fisher-Yates shuffle would be faster, but this is simpler for now
       setShuffledCards(shuffled);
     }
-  }, [cards]);
+  }, [cards, reversalRate]);
 
   return shuffledCards;
 }
