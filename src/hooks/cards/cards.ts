@@ -8,8 +8,8 @@ export interface Card {
   name: string;
   category: string;
   path: string;
-  meaning_upright: string;
-  meaning_reversed: string;
+  meaningUpright: string;
+  meaningReversed: string;
   isReversed?: boolean; // Optional property to indicate if the card is reversed
 }
 
