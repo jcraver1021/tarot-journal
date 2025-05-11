@@ -4,3 +4,7 @@
   background-size: cover;
   background-image: url('nyxx-tape-6ax81cLilAQ-unsplash.jpg');
 }
+
+.drawCard {
+  display: 'flex';
+}

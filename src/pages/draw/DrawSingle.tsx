@@ -2,7 +2,7 @@ import {useLocation} from 'react-router-dom';
 import TarotCard from '../../components/TarotCard/TarotCard';
 import {Card, useGetShuffledCards} from '../../hooks/cards/cards';
 import {useEffect, useState} from 'react';
-import {Typography} from '@mui/material';
+import {Grid, Typography} from '@mui/material';
 import './Draw.css';
 
 function DrawSingle() {
@@ -36,19 +36,29 @@ function DrawSingle() {
   }, [shuffledCards]);
 
   return (
-    <div className="draw-container">
-      {card ? (
-        <TarotCard
-          image={card?.path}
-          uprightText={card?.meaningUpright}
-          reversedText={card?.meaningReversed}
-          isReversed={card?.isReversed}
-        />
-      ) : (
-        <Typography variant="h6" color="text.secondary">
-          Shuffling...
-        </Typography>
-      )}
+    <div className="drawContainer">
+      <Grid
+        container
+        direction="row"
+        spacing={0}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <div className="drawCard">
+          {card ? (
+            <TarotCard
+              image={card?.path}
+              uprightText={card?.meaningUpright}
+              reversedText={card?.meaningReversed}
+              isReversed={card?.isReversed}
+            />
+          ) : (
+            <Typography variant="h6" color="text.secondary">
+              Shuffling...
+            </Typography>
+          )}
+        </div>
+      </Grid>
     </div>
   );
 }
