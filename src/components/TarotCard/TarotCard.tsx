@@ -14,7 +14,7 @@ export type TarotCardProps = {
 export default function TarotCard(props: TarotCardProps) {
   return (
     <div className="tarotCard">
-      <Card className="tarotCardContainer">
+      <Card>
         <CardMedia
           className="tarotCardImage"
           component="img"
