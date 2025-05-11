@@ -5,6 +5,7 @@ import List from './pages/list/List';
 import DrawSingle from './pages/draw/DrawSingle';
 
 function App() {
+  // TODO: We want to use the same Draw page so we can reuse the journal mechanism, but we will need to maintain the routes so we can pass the right options
   return (
     <BrowserRouter>
       <Routes>
