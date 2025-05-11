@@ -58,8 +58,8 @@ function List() {
               {currentIndex + 1}/{totalCards}
             </h3>
             <img src={currentCard.path} alt={currentCard.name} />
-            <p>{currentCard.meaning_upright}</p>
-            <p>{currentCard.meaning_reversed}</p>
+            <p>{currentCard.meaningUpright}</p>
+            <p>{currentCard.meaningReversed}</p>
           </div>
         ) : (
           <p>No card found</p>

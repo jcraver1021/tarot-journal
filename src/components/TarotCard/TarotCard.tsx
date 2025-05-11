@@ -11,10 +11,13 @@ export type TarotCardProps = {
   image?: string;
 };
 
+// TODO: Get out of the boolean trap, define all of the display options
+// This includes show as a drawing, show as an encyclopedia entry, how to show the other text, etc.
+
 export default function TarotCard(props: TarotCardProps) {
   return (
     <div className="tarotCard">
-      <Card className="tarotCardContainer">
+      <Card>
         <CardMedia
           className="tarotCardImage"
           component="img"
