@@ -1,5 +1,5 @@
 import {render, screen, cleanup} from '@testing-library/react';
-import TarotCard from './TarotCard';
+import TarotCard, {DisplayModes, Orientation} from './TarotCard';
 import {describe, it, expect, afterEach} from 'vitest';
 
 describe('TarotCard Component', () => {
@@ -7,47 +7,137 @@ describe('TarotCard Component', () => {
     cleanup();
   });
 
-  it('renders the natural card text and image correctly', () => {
-    render(
-      <TarotCard
-        isReversed={false}
-        uprightText="Upright Meaning"
-        reversedText="Reversed Meaning"
-        image="normal-image.jpg"
-      />
-    );
+  describe('Card Display', () => {
+    describe('Single Card Drawing', () => {
+      it('renders the card fully', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DISPLAY}
+            title="The Pineapple"
+            image="pineapple.jpg"
+            uprightText="Delicious"
+            reversedText="Doesn't fit"
+          />
+        );
 
-    const image = screen.getByTestId('tarot-card-image-upright');
-    const nonImage = screen.queryByTestId('tarot-card-image-reversed');
-    const text = screen.getByText('Upright Meaning');
+        const title = screen.getByTestId('tarot-card-title');
+        const image = screen.getByTestId('tarot-card-image');
+        const uprightText = screen.getByText('Upright: Delicious');
+        const reversedText = screen.getByText("Reversed: Doesn't fit");
+        expect(title.textContent).toMatch('The Pineapple');
+        expect(image).toHaveProperty(
+          'src',
+          expect.stringContaining('pineapple.jpg')
+        );
+        expect(uprightText).toBeTruthy();
+        expect(reversedText).toBeTruthy();
+      });
 
-    expect(image).toHaveProperty(
-      'src',
-      expect.stringContaining('normal-image.jpg')
-    );
-    expect(nonImage).toBeFalsy();
-    expect(text).toBeTruthy();
-  });
+      it('renders the card the same with upright orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DISPLAY}
+            orientation={Orientation.UPRIGHT}
+            title="The Pineapple"
+            image="pineapple.jpg"
+            uprightText="Delicious"
+            reversedText="Doesn't fit"
+          />
+        );
 
-  it('renders the reversed card text and rotates the image', () => {
-    render(
-      <TarotCard
-        isReversed={true}
-        uprightText="Upright Meaning"
-        reversedText="Reversed Meaning"
-        image="reversed-image.jpg"
-      />
-    );
+        const title = screen.getByTestId('tarot-card-title');
+        const image = screen.getByTestId('tarot-card-image');
+        const uprightText = screen.getByText('Upright: Delicious');
+        const reversedText = screen.getByText("Reversed: Doesn't fit");
+        expect(title.textContent).toMatch('The Pineapple');
+        expect(image).toHaveProperty(
+          'src',
+          expect.stringContaining('pineapple.jpg')
+        );
+        expect(uprightText).toBeTruthy();
+        expect(reversedText).toBeTruthy();
+      });
 
-    const image = screen.getByTestId('tarot-card-image-reversed');
-    const nonImage = screen.queryByTestId('tarot-card-image-upright');
-    const text = screen.getByText('Reversed Meaning');
+      it('renders the card the same with reversed orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DISPLAY}
+            orientation={Orientation.REVERSED}
+            title="The Pineapple"
+            image="pineapple.jpg"
+            uprightText="Delicious"
+            reversedText="Doesn't fit"
+          />
+        );
 
-    expect(image).toHaveProperty(
-      'src',
-      expect.stringContaining('reversed-image.jpg')
-    );
-    expect(nonImage).toBeFalsy();
-    expect(text).toBeTruthy();
+        const title = screen.getByTestId('tarot-card-title');
+        const image = screen.getByTestId('tarot-card-image');
+        const uprightText = screen.getByText('Upright: Delicious');
+        const reversedText = screen.getByText("Reversed: Doesn't fit");
+        expect(title.textContent).toMatch('The Pineapple');
+        expect(image).toHaveProperty(
+          'src',
+          expect.stringContaining('pineapple.jpg')
+        );
+        expect(uprightText).toBeTruthy();
+        expect(reversedText).toBeTruthy();
+      });
+    });
+
+    describe('Single Card Drawing', () => {
+      it('renders the card with upright orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_SINGLE}
+            orientation={Orientation.UPRIGHT}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.getByTestId('tarot-card-image-upright');
+        const reversedImage = screen.queryByTestId('tarot-card-image-reversed');
+        const uprightText = screen.getByText('Up');
+        const reversedText = screen.queryByText('Down');
+
+        expect(uprightImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(reversedImage).toBeFalsy();
+        expect(uprightText).toBeTruthy();
+        expect(reversedText).toBeFalsy();
+      });
+
+      it('renders the card with reversed orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_SINGLE}
+            orientation={Orientation.REVERSED}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.queryByTestId('tarot-card-image-upright');
+        const reversedImage = screen.getByTestId('tarot-card-image-reversed');
+        const uprightText = screen.queryByText('Up');
+        const reversedText = screen.getByText('Down');
+
+        expect(uprightImage).toBeFalsy();
+        expect(reversedImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(uprightText).toBeFalsy();
+        expect(reversedText).toBeTruthy();
+      });
+    });
+
+    // Hover card is not used; we will implement tests once a user story is created.
   });
 });

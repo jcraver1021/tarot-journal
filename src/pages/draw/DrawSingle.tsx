@@ -1,5 +1,8 @@
 import {useLocation} from 'react-router-dom';
-import TarotCard from '../../components/TarotCard/TarotCard';
+import TarotCard, {
+  DisplayModes,
+  Orientation,
+} from '../../components/TarotCard/TarotCard';
 import {Card, useGetShuffledCards} from '../../hooks/cards/cards';
 import {useEffect, useState} from 'react';
 import {Grid, Typography} from '@mui/material';
@@ -47,10 +50,14 @@ function DrawSingle() {
         <div className="drawCard">
           {card ? (
             <TarotCard
+              displayMode={DisplayModes.DRAW_SINGLE}
+              orientation={
+                card.isReversed ? Orientation.REVERSED : Orientation.UPRIGHT
+              }
+              title={card.name}
               image={card?.path}
               uprightText={card?.meaningUpright}
               reversedText={card?.meaningReversed}
-              isReversed={card?.isReversed}
             />
           ) : (
             <Typography variant="h6" color="text.secondary">
