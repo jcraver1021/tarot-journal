@@ -1,13 +1,9 @@
-// page reqs:
-// button left and right
-// scroll wheel to go through the list
-// show card i based on state
-
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Card, useCards} from '../../hooks/cards/cards';
-import {Button} from '@mui/material';
 import './List.css';
+import TarotCard, {DisplayModes} from '../../components/TarotCard/TarotCard';
+import {Button, Grid, Typography} from '@mui/material';
 
 // Constructs a map from card IDs to their indices in the cards array to allow ID-based access.
 function constructMap(cards: Card[]): Record<string, number> {
@@ -48,24 +44,24 @@ function List() {
   const currentCard = cards[currentIndex];
 
   return (
-    <div className="list-container">
-      <div className="card-display">
-        {currentCard ? (
-          <div className="card">
-            <h2>{currentCard.name}</h2>
-            <h3>{currentCard.category}</h3>
-            <h3>
-              {currentIndex + 1}/{totalCards}
-            </h3>
-            <img src={currentCard.path} alt={currentCard.name} />
-            <p>{currentCard.meaningUpright}</p>
-            <p>{currentCard.meaningReversed}</p>
-          </div>
-        ) : (
-          <p>No card found</p>
-        )}
-      </div>
-      <div className="navigation-buttons">
+    <div className="listContainer">
+      <Grid
+        container
+        direction="row"
+        spacing={0}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Typography variant="h4">
+          {currentIndex + 1} / {totalCards}
+        </Typography>
+        <TarotCard
+          displayMode={DisplayModes.DISPLAY}
+          title={currentCard.name}
+          image={currentCard.path}
+          uprightText={currentCard.meaningUpright}
+          reversedText={currentCard.meaningReversed}
+        />
         <Button
           variant="contained"
           onClick={() => {
@@ -86,7 +82,7 @@ function List() {
         >
           Next
         </Button>
-      </div>
+      </Grid>
     </div>
   );
 }

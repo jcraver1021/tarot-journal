@@ -1,44 +1,143 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import {Card, CardContent, CardMedia, Tooltip, Typography} from '@mui/material';
 import './TarotCard.css';
+import {validateEnumKey} from '../../common/enum';
+
+export const DisplayModes = Object.freeze({
+  DISPLAY: 1,
+  DRAW_SINGLE: 2,
+  DRAW_HOVER: 3,
+});
+
+export const Orientation = Object.freeze({
+  UPRIGHT: 1,
+  REVERSED: 2,
+});
 
 export type TarotCardProps = {
-  isReversed?: boolean;
+  displayMode: number;
+  orientation?: number;
+  title?: string;
+  image?: string;
   uprightText?: string;
   reversedText?: string;
-  image?: string;
 };
 
-// TODO: Get out of the boolean trap, define all of the display options
-// This includes show as a drawing, show as an encyclopedia entry, how to show the other text, etc.
+export default function TarotCard({
+  displayMode,
+  orientation,
+  title,
+  image,
+  uprightText,
+  reversedText,
+}: TarotCardProps) {
+  if (!orientation) {
+    orientation = Orientation.UPRIGHT;
+  }
+  validateEnumKey(DisplayModes, displayMode);
+  validateEnumKey(Orientation, orientation);
 
-export default function TarotCard(props: TarotCardProps) {
-  return (
-    <div className="tarotCard">
-      <Card>
-        <CardMedia
-          className="tarotCardImage"
-          component="img"
-          data-testid={
-            props.isReversed
-              ? 'tarot-card-image-reversed'
-              : 'tarot-card-image-upright'
-          }
-          image={props.image}
-          sx={props.isReversed ? {transform: 'rotate(180deg)'} : {}}
-        />
-        <CardContent>
-          <Typography
-            className="tarotCardText"
-            variant="body2"
-            color="text.secondary"
+  switch (displayMode) {
+    case DisplayModes.DISPLAY:
+      return (
+        <div className="tarotCard">
+          <Card>
+            <CardContent>
+              <Typography
+                className="tarotCardText"
+                variant="h5"
+                component="div"
+                data-testid="tarot-card-title"
+              >
+                {title}
+              </Typography>
+            </CardContent>
+            <CardMedia
+              className="tarotCardImage"
+              component="img"
+              data-testid="tarot-card-image"
+              image={image}
+            />
+            <CardContent>
+              <Typography
+                className="tarotCardText"
+                variant="body2"
+                color="text.secondary"
+              >
+                {`Upright: ${uprightText}`}
+              </Typography>
+              <Typography
+                className="tarotCardText"
+                variant="body2"
+                color="text.secondary"
+              >
+                {`Reversed: ${reversedText}`}
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    case DisplayModes.DRAW_SINGLE:
+      return (
+        <div className="tarotCard">
+          <Card>
+            <CardMedia
+              className="tarotCardImage"
+              component="img"
+              data-testid={
+                orientation === Orientation.REVERSED
+                  ? 'tarot-card-image-reversed'
+                  : 'tarot-card-image-upright'
+              }
+              image={image}
+              sx={
+                orientation === Orientation.REVERSED
+                  ? {transform: 'rotate(180deg)'}
+                  : {}
+              }
+            />
+            <CardContent>
+              <Typography
+                className="tarotCardText"
+                variant="body2"
+                color="text.secondary"
+              >
+                {orientation === Orientation.REVERSED
+                  ? reversedText
+                  : uprightText}
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    case DisplayModes.DRAW_HOVER:
+      return (
+        <div className="tarotCard">
+          <Tooltip
+            title={
+              orientation === Orientation.REVERSED ? reversedText : uprightText
+            }
           >
-            {props.isReversed ? props.reversedText : props.uprightText}
-          </Typography>
-        </CardContent>
-      </Card>
-    </div>
-  );
+            <Card>
+              <CardMedia
+                className="tarotCardImage"
+                component="img"
+                data-testid={
+                  orientation === Orientation.REVERSED
+                    ? 'tarot-card-image-reversed'
+                    : 'tarot-card-image-upright'
+                }
+                image={image}
+                sx={
+                  orientation === Orientation.REVERSED
+                    ? {transform: 'rotate(180deg)'}
+                    : {}
+                }
+              />
+            </Card>
+          </Tooltip>
+        </div>
+      );
+    default:
+      throw new Error('I have no idea how the fuck you got here');
+  }
 }
