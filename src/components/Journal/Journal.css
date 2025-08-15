@@ -1,0 +1,26 @@
+.journalContainer {
+  padding: 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  align-items: center;
+}
+
+.journalEntry {
+  margin-bottom: 12px;
+}
+
+.journalEntry:last-child {
+  margin-bottom: 0;
+}
+
+.journalEntry .MuiTextField-root {
+  width: 100%;
+}
+
+.journalEntry .MuiButton-root {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
