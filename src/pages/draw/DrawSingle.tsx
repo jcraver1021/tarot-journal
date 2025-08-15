@@ -3,10 +3,12 @@ import TarotCard, {
   DisplayModes,
   Orientation,
 } from '../../components/TarotCard/TarotCard';
+import Journal from '../../components/Journal/Journal';
 import {Card, useGetShuffledCards} from '../../hooks/cards/cards';
 import {useEffect, useState} from 'react';
 import {Grid, Typography} from '@mui/material';
 import './Draw.css';
+import {Spread} from '../../data/journal';
 
 function DrawSingle() {
   const location = useLocation();
@@ -66,6 +68,7 @@ function DrawSingle() {
           )}
         </div>
       </Grid>
+      <Journal spread={Spread.Single} cards={card ? [card] : []} />
     </div>
   );
 }
