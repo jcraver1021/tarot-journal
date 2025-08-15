@@ -59,7 +59,7 @@ function Journal({spread, cards}: JournalProps) {
       <Stack>
         <TextField
           inputRef={nameRef}
-          label=" Name"
+          label="Name"
           variant="outlined"
           onChange={e => {
             setEmptyIfChange(nameEmpty, setNameEmpty, e.target.value);
