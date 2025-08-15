@@ -2,9 +2,11 @@ import {render, screen, fireEvent} from '@testing-library/react';
 import Journal from './Journal';
 import {describe, it, expect} from 'vitest';
 import '@testing-library/jest-dom';
+import {Spread} from '../../data/journal';
+import {cards} from '../../data/cards-rw';
 
-const mockSpread = {name: 'Test Spread'} as any;
-const mockCards = [{id: 1, name: 'Card 1'}] as any[];
+const mockSpread = Spread.Single;
+const mockCards = cards;
 
 describe('Journal', () => {
   it('renders input fields and save button', () => {
