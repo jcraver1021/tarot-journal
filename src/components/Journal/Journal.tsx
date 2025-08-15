@@ -48,6 +48,9 @@ function Journal({spread, cards}: JournalProps) {
       notes: journalRef.current?.value || '',
       profileId: nameRef.current?.value || '',
     };
+    // TODO: Downloader should first check for existing entries using the same filename and, if found, append this entry.
+    // If the file is not found, this is a new entry (and should be stored as a list of entries).
+    // If the file does not parse successfully, the downloader should show an error message.
     const link = document.createElement('a');
     link.href =
       'data:application/json;charset=utf-8,' +
