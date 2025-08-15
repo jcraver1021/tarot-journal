@@ -1,20 +1,18 @@
 import {Button, Stack, TextField} from '@mui/material';
 import './Journal.css';
 import {useEffect, useRef, useState} from 'react';
-import {JournalEntry, Spread} from '../../data/journal';
+import {
+  entryToHref,
+  JournalEntry,
+  nameJournal,
+  Spread,
+} from '../../data/journal';
 import {Card} from '../../hooks/cards/cards';
 
 export type JournalProps = {
   spread: Spread;
   cards: Card[];
 };
-
-const indentation = 4;
-const defaultJournalName = 'journal';
-
-function nameJournal(name: string) {
-  return name.trim().toLowerCase().replace(/\s+/g, '-');
-}
 
 function setEmptyIfChange(
   current: boolean,
@@ -41,22 +39,19 @@ function Journal({spread, cards}: JournalProps) {
   const journalRef = useRef<HTMLTextAreaElement>(null);
 
   const download = () => {
+    const date = new Date().toISOString();
     const entry: JournalEntry = {
       spread: spread,
       cards: cards,
-      date: new Date().toISOString(),
+      date: date,
       notes: journalRef.current?.value || '',
       profileId: nameRef.current?.value || '',
     };
-    // TODO: Downloader should first check for existing entries using the same filename and, if found, append this entry.
-    // If the file is not found, this is a new entry (and should be stored as a list of entries).
-    // If the file does not parse successfully, the downloader should show an error message.
     const link = document.createElement('a');
-    link.href =
-      'data:application/json;charset=utf-8,' +
-      encodeURIComponent(JSON.stringify(entry, null, indentation));
-    link.download = `${nameJournal(nameRef.current?.value || defaultJournalName)}.json`;
+    link.href = entryToHref(entry);
+    link.download = nameJournal(nameRef.current?.value, date);
     link.click();
+    link.remove();
   };
 
   return (
