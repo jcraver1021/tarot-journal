@@ -1,54 +1,93 @@
-# React + TypeScript + Vite
+# Tarot Journal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tarot Journal is a web application for personal tarot exploration; it plays the
+role of the dealer and offers space for journaling and reflection.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Personal Philosophy
 
-## Expanding the ESLint configuration
+The author of this application does not believe that tarot cards have any
+magical powers or supernatural connections. Rather, I find the randomness of
+drawing cards as well as the accumulated meanings associated with each card to
+be a helpful tool for reflection.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+For instance, drawing `Death` would not make me think I'm about to die, but it
+would prompt me to think about what is ending, beginning, or changing in my
+life today. Any card I draw would find something in my life to connect to, and
+I welcome that directing of my attention even though it may have no ultimate
+"meaning".
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+Therefore use of this application implies that you consent to using it under
+these terms; any perceived connection to the supernatural is something you have
+imported yourself, and the author is not responsible for that.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Pages
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+The application hosts the following pages:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+- `/`: Home page
+  - `/card/:id`: Card view page
+    - View the images and meanings of individual cards
+    - `id`, if included, will jump to the card with that index in the deck
+  - `/draw`: Card drawing methods
+    - `/draw/single`: Single card draw + journal
+  - `/read`: Open and view a set of journal entries
+
+## Technical details
+
+Tarot Journal is a [React][base-react] + [TypeScript][base-ts] application
+which is tested, built, and run on [Vite][base-vite].
+
+[base-react]: https://react.dev/
+[base-ts]: https://www.typescriptlang.org/
+[base-vite]: https://vite.dev/
+
+### Prerequisites
+
+To run, ensure you have [Node][prq-node] and [NPM][prq-npm] installed on your system.
+
+[prq-node]: https://nodejs.org/en
+[prq-npm]: https://www.npmjs.com/
+
+### Running the application
+
+#### Local deployment
+
+To run in dev mode,
+
+1. Check out the repository as follows:
+
+   ```sh
+   git clone git@github.com:jcraver1021/tarot-journal.git
+   ```
+
+1. Navigate to the directory where you checked out the repository.
+
+1. Run the application using the `npm` script `dev` as follows:
+
+   ```sh
+   npm run dev
+   ```
+
+1. Navigate to the URL where the application is running
+   (likely `http://localhost:5173`).
+
+#### Hosted deployment
+
+I will consider hosting the application in the future, but for now, local
+deployment is the only option.
+
+## Contribution and feedback
+
+Do you have feedback for the application? Create an [issue][gh-issue]! I use
+these for project management in this context. This is, however, a side project,
+and I have a family and a full-time job that come first.
+
+Are you a developer who would be interested in collaborating with me? Send a
+[PR][gh-pr]! If it connects to an issue, includes a helpful description, passes
+formatting and linting requirements, includes tests where appropriate, and
+is "readable" (by my intuition), I 'll review it.
+
+[gh-issue]: https://github.com/jcraver1021/tarot-journal/issues
+[gh-pr]: https://github.com/jcraver1021/tarot-journal/pulls
