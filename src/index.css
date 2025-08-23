@@ -1,11 +1,18 @@
 :root {
+  --color-bg: #80065f;
+  --color-element: #9e2308;
+  --color-highlight: #d9530b;
+  --color-shadow: #780606;
+  --color-fg: #eca985;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-fg);
+  background-size: cover;
+  background-image: url('../../nyxx-tape-6ax81cLilAQ-unsplash.jpg');
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

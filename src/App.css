@@ -1,5 +1,4 @@
-#root {
-  min-width: 100vw;
-  min-height: 100vh;
-  margin: 0 auto;
+button:focus {
+  outline: 2px solid var(--color-highlight);
+  box-shadow: 0 0 0 2px var(--color-shadow);
 }
