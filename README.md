@@ -19,8 +19,9 @@ I welcome that directing of my attention even though it may have no ultimate
 "meaning".
 
 Therefore use of this application implies that you consent to using it under
-these terms; any perceived connection to the supernatural is something you have
-imported yourself, and the author is not responsible for that.
+these terms and you agree that any perceived connection to the supernatural is
+something you have imported yourself and that you do not hold the author
+responsible for that.
 
 ### Pages
 
@@ -82,12 +83,13 @@ deployment is the only option.
 
 Do you have feedback for the application? Create an [issue][gh-issue]! I use
 these for project management in this context. This is, however, a side project,
-and I have a family and a full-time job that come first.
+and I have a family and a full-time job that come first, so apologies in
+advance if I'm slow to respond.
 
 Are you a developer who would be interested in collaborating with me? Send a
 [PR][gh-pr]! If it connects to an issue, includes a helpful description, passes
-formatting and linting requirements, includes tests where appropriate, and
-is "readable" (by my intuition), I 'll review it.
+formatting and linting requirements, includes tests where appropriate, I'll
+review it.
 
 [gh-issue]: https://github.com/jcraver1021/tarot-journal/issues
 [gh-pr]: https://github.com/jcraver1021/tarot-journal/pulls

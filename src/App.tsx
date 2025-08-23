@@ -1,9 +1,10 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import './App.css';
 import Home from './pages/home/Home';
 import List from './pages/list/List';
 import DrawSingle from './pages/draw/DrawSingle';
 import Read from './pages/read/Read';
+
+import './App.css';
 
 function App() {
   return (
