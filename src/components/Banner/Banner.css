@@ -1,20 +1,38 @@
-.banner {
-  align-items: top-center;
-  justify-content: center;
-  text-align: center;
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+.MuiTypography-h1,
+.MuiTypography-h2,
+.MuiTypography-h3,
+.MuiTypography-h4,
+.MuiTypography-h5,
+.MuiTypography-h6 {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-weight: bold;
+  padding: 16px;
+  outline: 4px solid var(--color-shadow);
+  justify-self: center;
+  width: 100%;
 }
 
-.bannerText {
-  position: relative;
-  z-index: 1;
-  background-color: #8b4f39;
-  color: #ffffff;
+.MuiTypography-h1 {
   font-size: 72px;
-  font-weight: bold;
+}
+
+.MuiTypography-h2 {
+  font-size: 60px;
+}
+
+.MuiTypography-h3 {
+  font-size: 48px;
+}
+
+.MuiTypography-h4 {
+  font-size: 34px;
+}
+
+.MuiTypography-h5 {
+  font-size: 24px;
+}
+
+.MuiTypography-h6 {
+  font-size: 20px;
 }
