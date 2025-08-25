@@ -42,7 +42,7 @@ export default function TarotCard({
       return (
         <div className="tarotCard">
           <Card>
-            <CardContent>
+            <CardContent className="tarotCardContent">
               <Typography
                 variant="h5"
                 component="div"
@@ -52,11 +52,12 @@ export default function TarotCard({
               </Typography>
             </CardContent>
             <CardMedia
+              className="tarotCardMedia"
               component="img"
               data-testid="tarot-card-image"
               image={image}
             />
-            <CardContent>
+            <CardContent className="tarotCardMeaning">
               <Typography variant="body2" color="text.secondary">
                 {`Upright: ${uprightText}`}
               </Typography>
@@ -72,6 +73,7 @@ export default function TarotCard({
         <div className="tarotCard">
           <Card>
             <CardMedia
+              className="tarotCardMedia"
               component="img"
               data-testid={
                 orientation === Orientation.REVERSED
@@ -85,7 +87,7 @@ export default function TarotCard({
                   : {}
               }
             />
-            <CardContent>
+            <CardContent className="tarotCardContent">
               <Typography variant="body2" color="text.secondary">
                 {orientation === Orientation.REVERSED
                   ? reversedText
@@ -105,6 +107,7 @@ export default function TarotCard({
           >
             <Card>
               <CardMedia
+                className="tarotCardMedia"
                 component="img"
                 data-testid={
                   orientation === Orientation.REVERSED

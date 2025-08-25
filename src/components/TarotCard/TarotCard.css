@@ -5,13 +5,19 @@
   transition: transform 0.2s;
 }
 
-.MuiCardMedia-root {
+.tarotCardMedia {
   height: auto;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-shadow);
 }
 
-.MuiCardContent-root {
+.tarotCardTitle {
+  text-align: center;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-shadow);
+}
+
+.tarotCardContent {
   text-align: center;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-shadow);

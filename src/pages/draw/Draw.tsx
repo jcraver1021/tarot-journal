@@ -53,7 +53,7 @@ function Draw() {
         return <DrawSingle card={shuffledCards[0]} />;
       default:
         throw new Error(
-          `Unknown spread type: ${spread} (resolved to ${defaultSpread})`
+          `Unknown spread type: ${spread}`
         );
     }
   };
@@ -67,7 +67,7 @@ function Draw() {
           break;
         default:
           throw new Error(
-            `Unknown spread type: ${spread} (resolved to ${defaultSpread})`
+            `Unknown spread type: ${spread}`
           );
       }
 
