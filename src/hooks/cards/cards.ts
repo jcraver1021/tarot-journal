@@ -1,7 +1,19 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, createContext, useContext} from 'react';
 import {cards as RWCards} from '../../data/cards-rw';
 
 const defaultReversalRate = 0.05;
+
+export interface CardSet {
+  id: string;
+  name: string;
+  cards: Card[];
+}
+
+export const CardSets: CardSet[] = [
+  {id: 'RW', name: 'Rider-Waite', cards: RWCards},
+];
+
+export const CardSetContext = createContext<CardSet>(CardSets[0]);
 
 export interface Card {
   id: string;
@@ -14,7 +26,8 @@ export interface Card {
 }
 
 export function useCards() {
-  const [cards] = useState<Card[]>(RWCards);
+  const cardSet = useContext(CardSetContext);
+  const [cards] = useState<Card[]>(cardSet.cards);
 
   return cards;
 }
