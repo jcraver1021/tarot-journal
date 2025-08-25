@@ -1,5 +1,6 @@
 import {Grid} from '@mui/material';
 import {Card} from '../../hooks/cards/cards';
+import Note from '../../components/Note/Note';
 import TarotCard, {
   DisplayModes,
   Orientation,
@@ -21,6 +22,7 @@ function DrawSingle({card}: DrawSingleProps) {
         alignItems="center"
         justifyContent="center"
       >
+        <Note text="You can focus on the meaning of this card. Does it represent today? Or does it represent what you're thinking about most at this moment? Write your thoughts in the journal below." />
         <div className="drawCard">
           <TarotCard
             displayMode={DisplayModes.DRAW_SINGLE}
