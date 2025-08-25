@@ -1,11 +1,11 @@
+import {Grid} from '@mui/material';
+import {Card} from '../../hooks/cards/cards';
+import {Spread} from '../../data/journal';
 import TarotCard, {
   DisplayModes,
   Orientation,
 } from '../../components/TarotCard/TarotCard';
 import Journal from '../../components/Journal/Journal';
-import {Card} from '../../hooks/cards/cards';
-import {Grid} from '@mui/material';
-import {Spread} from '../../data/journal';
 
 import './Draw.css';
 

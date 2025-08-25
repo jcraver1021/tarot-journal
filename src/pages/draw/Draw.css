@@ -1,8 +1,11 @@
 .drawContainer {
   min-width: 100vw;
   min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .drawCard {
-  display: 'flex';
+  display: flex;
 }

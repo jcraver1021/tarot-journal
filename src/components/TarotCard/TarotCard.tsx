@@ -1,6 +1,7 @@
 import {Card, CardContent, CardMedia, Tooltip, Typography} from '@mui/material';
-import './TarotCard.css';
 import {validateEnumKey} from '../../common/enum';
+
+import './TarotCard.css';
 
 export const DisplayModes = Object.freeze({
   DISPLAY: 1,
@@ -43,7 +44,6 @@ export default function TarotCard({
           <Card>
             <CardContent>
               <Typography
-                className="tarotCardText"
                 variant="h5"
                 component="div"
                 data-testid="tarot-card-title"
@@ -52,24 +52,15 @@ export default function TarotCard({
               </Typography>
             </CardContent>
             <CardMedia
-              className="tarotCardImage"
               component="img"
               data-testid="tarot-card-image"
               image={image}
             />
             <CardContent>
-              <Typography
-                className="tarotCardText"
-                variant="body2"
-                color="text.secondary"
-              >
+              <Typography variant="body2" color="text.secondary">
                 {`Upright: ${uprightText}`}
               </Typography>
-              <Typography
-                className="tarotCardText"
-                variant="body2"
-                color="text.secondary"
-              >
+              <Typography variant="body2" color="text.secondary">
                 {`Reversed: ${reversedText}`}
               </Typography>
             </CardContent>
@@ -81,7 +72,6 @@ export default function TarotCard({
         <div className="tarotCard">
           <Card>
             <CardMedia
-              className="tarotCardImage"
               component="img"
               data-testid={
                 orientation === Orientation.REVERSED
@@ -96,11 +86,7 @@ export default function TarotCard({
               }
             />
             <CardContent>
-              <Typography
-                className="tarotCardText"
-                variant="body2"
-                color="text.secondary"
-              >
+              <Typography variant="body2" color="text.secondary">
                 {orientation === Orientation.REVERSED
                   ? reversedText
                   : uprightText}
@@ -119,7 +105,6 @@ export default function TarotCard({
           >
             <Card>
               <CardMedia
-                className="tarotCardImage"
                 component="img"
                 data-testid={
                   orientation === Orientation.REVERSED

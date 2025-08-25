@@ -1,7 +1,8 @@
 .journalContainer {
   padding: 16px;
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
+  background-color: var(--color-element);
+  border: 1px solid var(--color-highlight);
+  width: 100%;
   border-radius: 4px;
   align-items: center;
 }
@@ -15,12 +16,12 @@
 }
 
 .journalEntry .MuiTextField-root {
-  width: 100%;
+  width: 100vw;
 }
 
 .journalEntry .MuiButton-root {
   margin-top: 8px;
   display: block;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
 }

@@ -1,6 +1,5 @@
-import {Button, Stack, TextField} from '@mui/material';
-import './Journal.css';
 import {useEffect, useRef, useState} from 'react';
+import {Button, Stack, TextField} from '@mui/material';
 import {
   entryToHref,
   JournalEntry,
@@ -8,6 +7,8 @@ import {
   Spread,
 } from '../../data/journal';
 import {Card} from '../../hooks/cards/cards';
+
+import './Journal.css';
 
 export type JournalProps = {
   spread: Spread;
