@@ -1,11 +1,9 @@
 import {Grid} from '@mui/material';
 import {Card} from '../../hooks/cards/cards';
-import {Spread} from '../../data/journal';
 import TarotCard, {
   DisplayModes,
   Orientation,
 } from '../../components/TarotCard/TarotCard';
-import Journal from '../../components/Journal/Journal';
 
 import './Draw.css';
 
@@ -38,7 +36,6 @@ function DrawSingle({cards}: DrawSingleProps) {
           />
         </div>
       </Grid>
-      <Journal spread={Spread.Single} cards={[card]} />
     </div>
   );
 }
