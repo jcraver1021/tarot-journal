@@ -1,0 +1,17 @@
+.instructionsTitle {
+  background-color: var(--color-element);
+  color: var(--color-fg);
+  padding: 16px;
+  outline: 4px solid var(--color-shadow);
+  justify-self: center;
+  width: 100%;
+}
+
+.instructionsText {
+  background-color: var(--color-element);
+  color: var(--color-fg);
+  padding: 16px;
+  outline: 4px solid var(--color-shadow);
+  justify-self: center;
+  width: 100%;
+}
