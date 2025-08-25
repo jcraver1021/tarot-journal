@@ -44,36 +44,35 @@ function Draw() {
   }, [reversalRate, location]);
 
   const getLayout = () => {
-    if (shuffledCards.length === 0) {
+    if (!spread || shuffledCards.length === 0) {
       return <Typography>Shuffling...</Typography>;
     }
 
-    switch (getSpread(spread) || defaultSpread) {
+    switch (getSpread(spread)) {
       case Spread.Single:
         return <DrawSingle card={shuffledCards[0]} />;
       default:
         throw new Error(
-          `Unknown spread type: ${spread}`
+          `Unknown spread type: ${spread}, resolved to ${getSpread(spread)}`
         );
     }
   };
 
   const getJournal = () => {
-    if (shuffledCards.length > 0) {
+    if (spread && shuffledCards.length > 0) {
       let cards = [];
-      switch (getSpread(spread) || defaultSpread) {
+      const spreadType = getSpread(spread);
+      switch (spreadType) {
         case Spread.Single:
           cards = [shuffledCards[0]];
           break;
         default:
           throw new Error(
-            `Unknown spread type: ${spread}`
+            `Unknown spread type: ${spread}, resolved to ${spreadType}`
           );
       }
 
-      return (
-        <Journal spread={getSpread(spread) || defaultSpread} cards={cards} />
-      );
+      return <Journal spread={spreadType} cards={cards} />;
     }
     return null;
   };
