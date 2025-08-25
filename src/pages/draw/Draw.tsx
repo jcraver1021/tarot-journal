@@ -58,15 +58,30 @@ function Draw() {
     }
   };
 
+  const getJournal = () => {
+    if (shuffledCards.length > 0) {
+      let cards = [];
+      switch (getSpread(spread) || defaultSpread) {
+        case Spread.Single:
+          cards = [shuffledCards[0]];
+          break;
+        default:
+          throw new Error(
+            `Unknown spread type: ${spread} (resolved to ${defaultSpread})`
+          );
+      }
+
+      return (
+        <Journal spread={getSpread(spread) || defaultSpread} cards={cards} />
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="drawContainer">
       {getLayout()}
-      {shuffledCards.length > 0 && (
-        <Journal
-          spread={getSpread(spread) || defaultSpread}
-          cards={[shuffledCards[0]]}
-        />
-      )}
+      {getJournal()}
     </div>
   );
 }
