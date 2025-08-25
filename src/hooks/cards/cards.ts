@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {cards as RWCards} from '../../data/cards-rw';
+import {cards as RWCards} from '../../data/cards-fp';
 
 const defaultReversalRate = 0.05;
 
