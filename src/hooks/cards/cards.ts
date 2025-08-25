@@ -1,4 +1,4 @@
-import {useState, useEffect, createContext, useContext} from 'react';
+import {useState, useEffect} from 'react';
 import {cards as DMCards} from '../../data/cards-dm';
 import {cards as FPCards} from '../../data/cards-fp';
 import {cards as RWCards} from '../../data/cards-rw';
@@ -19,8 +19,6 @@ export const CardSets: CardSet[] = [
   {id: 'KY', name: 'The King in Yellow', cards: KYCards},
 ];
 
-export const CardSetContext = createContext<CardSet>(CardSets[0]);
-
 export interface Card {
   id: string;
   name: string;
@@ -32,8 +30,7 @@ export interface Card {
 }
 
 export function useCards() {
-  const CardSet = useContext(CardSetContext);
-  const [cards] = useState<Card[]>(CardSet.cards);
+  const [cards] = useState<Card[]>(CardSets[0].cards);
 
   return cards;
 }
