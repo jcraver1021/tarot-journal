@@ -1,7 +1,25 @@
-import {useState, useEffect} from 'react';
-import {cards as RWCards} from '../../data/cards-fp';
+import {useState, useEffect, createContext, useContext} from 'react';
+import {cards as DMCards} from '../../data/cards-dm';
+import {cards as FPCards} from '../../data/cards-fp';
+import {cards as RWCards} from '../../data/cards-rw';
+import {cards as KYCards} from '../../data/cards-ky';
 
 const defaultReversalRate = 0.05;
+
+export interface CardSet {
+  id: string;
+  name: string;
+  cards: Card[];
+}
+
+export const CardSets: CardSet[] = [
+  {id: 'RW', name: 'Rider-Waite', cards: RWCards},
+  {id: 'DM', name: 'Deck of Many', cards: DMCards},
+  {id: 'FP', name: 'Fyodor Pavlov', cards: FPCards},
+  {id: 'KY', name: 'The King in Yellow', cards: KYCards},
+];
+
+export const CardSetContext = createContext<CardSet>(CardSets[0]);
 
 export interface Card {
   id: string;
@@ -14,7 +32,8 @@ export interface Card {
 }
 
 export function useCards() {
-  const [cards] = useState<Card[]>(RWCards);
+  const CardSet = useContext(CardSetContext);
+  const [cards] = useState<Card[]>(CardSet.cards);
 
   return cards;
 }
