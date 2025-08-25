@@ -58,7 +58,7 @@ function Draw() {
 
     switch (getSpread(spread)) {
       case Spread.Single:
-        return <DrawSingle cards={shuffledCards} />;
+        return <DrawSingle card={shuffledCards[0]} />;
       default:
         throw new Error(`Unknown spread type: ${spread}`);
     }

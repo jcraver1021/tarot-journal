@@ -8,12 +8,10 @@ import TarotCard, {
 import './Draw.css';
 
 export type DrawSingleProps = {
-  cards: Card[];
+  card: Card;
 };
 
-function DrawSingle({cards}: DrawSingleProps) {
-  const card = cards[0];
-
+function DrawSingle({card}: DrawSingleProps) {
   return (
     <div className="drawContainer">
       <Grid
