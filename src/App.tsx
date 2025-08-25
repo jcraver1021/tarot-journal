@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/card/:id" element={<List />} />
+        <Route path="/card/:id?" element={<List />} />
         <Route path="/draw/single" element={<DrawSingle />} />
         <Route path="/read" element={<Read />} />
       </Routes>
