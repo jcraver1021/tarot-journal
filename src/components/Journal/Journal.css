@@ -16,12 +16,12 @@
 }
 
 .journalEntry .MuiTextField-root {
-  width: 100vw;
+  width: 100%;
 }
 
 .journalEntry .MuiButton-root {
   margin-top: 8px;
   display: block;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }

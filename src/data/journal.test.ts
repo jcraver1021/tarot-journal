@@ -1,5 +1,21 @@
 import {describe, it, expect} from 'vitest';
-import {entryToHref, nameJournal, Spread, JournalEntry} from './journal';
+import {
+  entryToHref,
+  nameJournal,
+  Spread,
+  JournalEntry,
+  getSpread,
+} from './journal';
+
+describe('getSpread', () => {
+  it('should return the correct spread for a valid string', () => {
+    expect(getSpread('single')).toBe(Spread.Single);
+  });
+
+  it('should return undefined for an invalid string', () => {
+    expect(getSpread('invalid')).toBeUndefined();
+  });
+});
 
 describe('entryToHref', () => {
   const mockEntry: JournalEntry = {

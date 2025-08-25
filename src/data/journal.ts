@@ -4,6 +4,19 @@ export enum Spread {
   Single = 'single',
 }
 
+export function getSpread(spread: string | undefined): Spread | undefined {
+  if (spread) {
+    switch (spread) {
+      case 'single':
+        return Spread.Single;
+      default:
+        return undefined;
+    }
+  }
+
+  return undefined;
+}
+
 export type JournalEntry = {
   spread: Spread;
   cards: Card[];

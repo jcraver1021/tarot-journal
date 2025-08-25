@@ -1,7 +1,7 @@
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 import {Typography} from '@mui/material';
-import {Spread} from '../../data/journal';
+import {getSpread, Spread} from '../../data/journal';
 import {useGetShuffledCards} from '../../hooks/cards/cards';
 import Journal from '../../components/Journal/Journal';
 import DrawSingle from './DrawSingle';
@@ -10,14 +10,6 @@ import './Draw.css';
 
 const defaultSpread = Spread.Single;
 
-function getSpread(spread: string | undefined): Spread {
-  if (spread && spread in Spread) {
-    return Spread[spread as keyof typeof Spread];
-  }
-
-  return defaultSpread;
-}
-
 function Draw() {
   const {spread} = useParams<{spread: string}>();
   const navigate = useNavigate();
@@ -25,7 +17,7 @@ function Draw() {
   useEffect(() => {
     if (!spread) {
       // If no spread is specified, redirect to the default draw method
-      navigate('/draw/single');
+      navigate(`/draw/${defaultSpread}`);
     }
   }, [spread, navigate]);
 
@@ -56,18 +48,25 @@ function Draw() {
       return <Typography>Shuffling...</Typography>;
     }
 
-    switch (getSpread(spread)) {
+    switch (getSpread(spread) || defaultSpread) {
       case Spread.Single:
         return <DrawSingle card={shuffledCards[0]} />;
       default:
-        throw new Error(`Unknown spread type: ${spread}`);
+        throw new Error(
+          `Unknown spread type: ${spread} (resolved to ${defaultSpread})`
+        );
     }
   };
 
   return (
     <div className="drawContainer">
       {getLayout()}
-      <Journal spread={getSpread(spread)} cards={[shuffledCards[0]]} />
+      {shuffledCards.length > 0 && (
+        <Journal
+          spread={getSpread(spread) || defaultSpread}
+          cards={[shuffledCards[0]]}
+        />
+      )}
     </div>
   );
 }
