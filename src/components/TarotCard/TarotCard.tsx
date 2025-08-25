@@ -57,7 +57,7 @@ export default function TarotCard({
               data-testid="tarot-card-image"
               image={image}
             />
-            <CardContent className="tarotCardMeaning">
+            <CardContent className="tarotCardContent">
               <Typography variant="body2" color="text.secondary">
                 {`Upright: ${uprightText}`}
               </Typography>
