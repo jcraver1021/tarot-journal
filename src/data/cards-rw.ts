@@ -317,7 +317,7 @@ export const cards = [
     name: 'Four of Cups',
     category: 'Minor Arcana',
     path: '/card/rw/Cups04.png',
-    meaningUpright: 'Acard/rw/y, contemplation, reevaluation',
+    meaningUpright: 'Apathy, contemplation, reevaluation',
     meaningReversed: 'Clarity, new outlook, awareness',
   },
   {

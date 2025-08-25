@@ -3,6 +3,16 @@ import {cards as RWCards} from '../../data/cards-rw';
 
 const defaultReversalRate = 0.05;
 
+export interface CardSet {
+  id: string;
+  name: string;
+  cards: Card[];
+}
+
+export const CardSets: CardSet[] = [
+  {id: 'RW', name: 'Rider-Waite', cards: RWCards},
+];
+
 export interface Card {
   id: string;
   name: string;
@@ -14,7 +24,7 @@ export interface Card {
 }
 
 export function useCards() {
-  const [cards] = useState<Card[]>(RWCards);
+  const [cards] = useState<Card[]>(CardSets[0].cards);
 
   return cards;
 }
