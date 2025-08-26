@@ -5,6 +5,8 @@ import {getSpread, Spread} from '../../data/journal';
 import {useGetShuffledCards} from '../../hooks/cards/cards';
 import Journal from '../../components/Journal/Journal';
 import DrawSingle from './DrawSingle';
+import DrawThree from './DrawThree';
+import DrawCelticCross from './DrawCelticCross';
 
 import './Draw.css';
 
@@ -51,6 +53,16 @@ function Draw() {
     switch (getSpread(spread)) {
       case Spread.Single:
         return <DrawSingle card={shuffledCards[0]} />;
+      case Spread.Three:
+        return (
+          <DrawThree
+            card1={shuffledCards[0]}
+            card2={shuffledCards[1]}
+            card3={shuffledCards[2]}
+          />
+        );
+      case Spread.CelticCross:
+        return <DrawCelticCross cards={shuffledCards.slice(0, 10)} />;
       default:
         throw new Error(
           `Unknown spread type: ${spread}, resolved to ${getSpread(spread)}`
@@ -65,6 +77,12 @@ function Draw() {
       switch (spreadType) {
         case Spread.Single:
           cards = [shuffledCards[0]];
+          break;
+        case Spread.Three:
+          cards = shuffledCards.slice(0, 3);
+          break;
+        case Spread.CelticCross:
+          cards = shuffledCards.slice(0, 10);
           break;
         default:
           throw new Error(

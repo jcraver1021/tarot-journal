@@ -6,6 +6,13 @@
   justify-content: center;
 }
 
+.drawCards {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
 .drawCard {
   display: flex;
 }

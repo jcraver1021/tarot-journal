@@ -12,7 +12,13 @@ function Home() {
           <Stack>
             <Banner text="Draw" level={2} />
             <Button variant="contained" href="/draw/single">
-              Single Card
+              One Card
+            </Button>
+            <Button variant="contained" href="/draw/three">
+              Three Cards
+            </Button>
+            <Button variant="contained" href="/draw/celtic-cross">
+              Celtic Cross
             </Button>
           </Stack>
           <Stack>

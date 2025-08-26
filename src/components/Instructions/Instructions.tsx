@@ -15,7 +15,7 @@ function Instructions(props: InstructionsProps) {
         {title}
       </Typography>
       <Typography className="instructionsText" variant="body1">
-        {content}
+        <pre>{content}</pre>
       </Typography>
     </div>
   );
