@@ -1,10 +1,11 @@
+import {useCallback} from 'react';
 import {Grid, Stack} from '@mui/material';
+import {Card} from '../../hooks/cards/cards';
 import Instructions from '../../components/Instructions/Instructions';
 import TarotCard, {
   DisplayModes,
   Orientation,
 } from '../../components/TarotCard/TarotCard';
-import {Card} from '../../hooks/cards/cards';
 
 import './Draw.css';
 
@@ -29,16 +30,21 @@ Three: Need to know. A warning, blessing, or message from a higher power.
 Four: The outcome. If you succeed, this is the best possible result. If you fail, this is the conclusion. Hope for the best, prepare for the worst.
 `;
 
-  const renderCard = (card: Card, roleText?: string) => (
-    <TarotCard
-      displayMode={DisplayModes.DRAW_HOVER}
-      orientation={card.isReversed ? Orientation.REVERSED : Orientation.UPRIGHT}
-      title={card.name}
-      image={card.path}
-      uprightText={card.meaningUpright}
-      reversedText={card.meaningReversed}
-      roleText={roleText}
-    />
+  const renderCard = useCallback(
+    (card: Card, roleText?: string) => (
+      <TarotCard
+        displayMode={DisplayModes.DRAW_HOVER}
+        orientation={
+          card.isReversed ? Orientation.REVERSED : Orientation.UPRIGHT
+        }
+        title={card.name}
+        image={card.path}
+        uprightText={card.meaningUpright}
+        reversedText={card.meaningReversed}
+        roleText={roleText}
+      />
+    ),
+    [cards]
   );
 
   return (
