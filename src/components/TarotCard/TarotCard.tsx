@@ -77,7 +77,7 @@ export default function TarotCard({
             {roleText && (
               <CardContent className="tarotCardContent">
                 <Typography variant="body2" color="text.secondary">
-                  {`Role: ${roleText}`}
+                  {roleText}
                 </Typography>
               </CardContent>
             )}
@@ -118,7 +118,7 @@ export default function TarotCard({
               {roleText && (
                 <CardContent className="tarotCardContent">
                   <Typography variant="body2" color="text.secondary">
-                    {`Role: ${roleText}`}
+                    {roleText}
                   </Typography>
                 </CardContent>
               )}
