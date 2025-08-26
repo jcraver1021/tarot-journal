@@ -29,7 +29,7 @@ Three: Need to know. A warning, blessing, or message from a higher power.
 Four: The outcome. If you succeed, this is the best possible result. If you fail, this is the conclusion. Hope for the best, prepare for the worst.
 `;
 
-  const renderCard = (card: Card) => (
+  const renderCard = (card: Card, roleText?: string) => (
     <TarotCard
       displayMode={DisplayModes.DRAW_HOVER}
       orientation={card.isReversed ? Orientation.REVERSED : Orientation.UPRIGHT}
@@ -37,6 +37,7 @@ Four: The outcome. If you succeed, this is the best possible result. If you fail
       image={card.path}
       uprightText={card.meaningUpright}
       reversedText={card.meaningReversed}
+      roleText={roleText}
     />
   );
 
@@ -46,23 +47,23 @@ Four: The outcome. If you succeed, this is the best possible result. If you fail
         <Instructions title="Celtic Cross" content={instructions.trim()} />
         <Grid container spacing={2}>
           <Grid size={4} />
-          <Grid size={4}>{renderCard(cards[3])}</Grid>
+          <Grid size={4}>{renderCard(cards[3], 'Overarching Energy')}</Grid>
           <Grid size={4} />
-          <Grid size={4}>{renderCard(cards[4])}</Grid>
+          <Grid size={4}>{renderCard(cards[4], 'Past')}</Grid>
           <Grid size={4}>
             <Stack direction="row">
-              {renderCard(cards[0])}
-              {renderCard(cards[1])}
+              {renderCard(cards[0], 'Self')}
+              {renderCard(cards[1], 'Cover')}
             </Stack>
           </Grid>
-          <Grid size={4}>{renderCard(cards[5])}</Grid>
+          <Grid size={4}>{renderCard(cards[5], 'Future')}</Grid>
           <Grid size={4} />
-          <Grid size={4}>{renderCard(cards[2])}</Grid>
+          <Grid size={4}>{renderCard(cards[2], 'Underlying Energy')}</Grid>
           <Grid size={4} />
-          <Grid size={3}>{renderCard(cards[6])}</Grid>
-          <Grid size={3}>{renderCard(cards[7])}</Grid>
-          <Grid size={3}>{renderCard(cards[8])}</Grid>
-          <Grid size={3}>{renderCard(cards[9])}</Grid>
+          <Grid size={3}>{renderCard(cards[6], 'Strengths')}</Grid>
+          <Grid size={3}>{renderCard(cards[7], 'Others')}</Grid>
+          <Grid size={3}>{renderCard(cards[8], 'Guidance')}</Grid>
+          <Grid size={3}>{renderCard(cards[9], 'Outcome')}</Grid>
         </Grid>
       </Stack>
     </div>
