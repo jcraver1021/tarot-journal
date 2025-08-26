@@ -8,7 +8,7 @@ describe('TarotCard Component', () => {
   });
 
   describe('Card Display', () => {
-    describe('Single Card Drawing', () => {
+    describe('Single Card Display', () => {
       it('renders the card fully', () => {
         render(
           <TarotCard
@@ -138,6 +138,50 @@ describe('TarotCard Component', () => {
       });
     });
 
-    // Hover card is not used; we will implement tests once a user story is created.
+    describe('Single Card with Hover', () => {
+      it('renders the card with upright orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_HOVER}
+            orientation={Orientation.UPRIGHT}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.getByTestId('tarot-card-image-upright');
+        const reversedImage = screen.queryByTestId('tarot-card-image-reversed');
+
+        expect(uprightImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(reversedImage).toBeFalsy();
+      });
+
+      it('renders the card with reversed orientation', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_HOVER}
+            orientation={Orientation.REVERSED}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.queryByTestId('tarot-card-image-upright');
+        const reversedImage = screen.getByTestId('tarot-card-image-reversed');
+
+        expect(uprightImage).toBeFalsy();
+        expect(reversedImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+      });
+    });
   });
 });

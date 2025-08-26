@@ -21,6 +21,7 @@ export type TarotCardProps = {
   image?: string;
   uprightText?: string;
   reversedText?: string;
+  roleText?: string;
 };
 
 export default function TarotCard({
@@ -30,6 +31,7 @@ export default function TarotCard({
   image,
   uprightText,
   reversedText,
+  roleText,
 }: TarotCardProps) {
   if (!orientation) {
     orientation = Orientation.UPRIGHT;
@@ -72,6 +74,13 @@ export default function TarotCard({
       return (
         <div className="tarotCard">
           <Card>
+            {roleText && (
+              <CardContent className="tarotCardContent">
+                <Typography variant="body2" color="text.secondary">
+                  {`Role: ${roleText}`}
+                </Typography>
+              </CardContent>
+            )}
             <CardMedia
               className="tarotCardMedia"
               component="img"
@@ -106,6 +115,13 @@ export default function TarotCard({
             }
           >
             <Card>
+              {roleText && (
+                <CardContent className="tarotCardContent">
+                  <Typography variant="body2" color="text.secondary">
+                    {`Role: ${roleText}`}
+                  </Typography>
+                </CardContent>
+              )}
               <CardMedia
                 className="tarotCardMedia"
                 component="img"
