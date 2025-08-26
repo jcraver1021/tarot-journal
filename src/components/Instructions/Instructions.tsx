@@ -14,7 +14,11 @@ function Instructions(props: InstructionsProps) {
       <Typography className="instructionsTitle" variant="h6">
         {title}
       </Typography>
-      <Typography className="instructionsText" variant="body1">
+      <Typography
+        className="instructionsText"
+        variant="body1"
+        whiteSpace="pre-wrap"
+      >
         {content}
       </Typography>
     </div>
