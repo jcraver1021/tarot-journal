@@ -53,8 +53,12 @@ describe('ViewEntry', () => {
 
     // Check spread
     const spreadField = screen.getByLabelText(/Spread/i) as HTMLInputElement;
-    expect(spreadField.value).toContain(
-      `${Spread.Three}: The Fool, The Magician, The High Priestess`
+    expect(spreadField.value).toContain(Spread.Three);
+
+    // Check cards
+    const cardsField = screen.getByLabelText(/Cards/i) as HTMLInputElement;
+    expect(cardsField.value).toContain(
+      'The Fool, The Magician, The High Priestess'
     );
 
     // Check journal entry
@@ -83,8 +87,12 @@ describe('ViewEntry', () => {
 
     // Check spread
     const spreadField = screen.getByLabelText(/Spread/i) as HTMLInputElement;
-    expect(spreadField.value).toContain(
-      `${Spread.Three}: The Fool (R), The Magician (R), The High Priestess (R)`
+    expect(spreadField.value).toContain(Spread.Three);
+
+    // Check cards
+    const cardsField = screen.getByLabelText(/Cards/i) as HTMLInputElement;
+    expect(cardsField.value).toContain(
+      'The Fool (R), The Magician (R), The High Priestess (R)'
     );
 
     // Check journal entry

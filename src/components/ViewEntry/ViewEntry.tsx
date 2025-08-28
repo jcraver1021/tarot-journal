@@ -39,7 +39,17 @@ function ViewEntry({entry}: ViewEntryProps) {
         <TextField
           label="Spread"
           variant="outlined"
-          value={`${entry.spread}: \n${entry.cards.map(describeCard).join(', ')}`}
+          value={entry.spread}
+          slotProps={{
+            input: {
+              readOnly: true,
+            },
+          }}
+        />
+        <TextField
+          label="Cards"
+          variant="outlined"
+          value={entry.cards.map(describeCard).join(', ')}
           slotProps={{
             input: {
               readOnly: true,
