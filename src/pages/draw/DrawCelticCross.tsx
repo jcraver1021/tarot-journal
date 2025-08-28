@@ -44,7 +44,7 @@ Four: The outcome. If you succeed, this is the best possible result. If you fail
         roleText={roleText}
       />
     ),
-    [cards]
+    []
   );
 
   return (
