@@ -2,6 +2,25 @@ import {Card} from '../hooks/cards/cards';
 
 export enum Spread {
   Single = 'single',
+  Three = 'three',
+  CelticCross = 'celtic-cross',
+}
+
+export function getSpread(spread: string | undefined): Spread | undefined {
+  if (spread) {
+    switch (spread) {
+      case 'single':
+        return Spread.Single;
+      case 'three':
+        return Spread.Three;
+      case 'celtic-cross':
+        return Spread.CelticCross;
+      default:
+        return undefined;
+    }
+  }
+
+  return undefined;
 }
 
 export type JournalEntry = {

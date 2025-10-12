@@ -1,4 +1,5 @@
-import {render, screen, cleanup} from '@testing-library/react';
+import {render, screen, cleanup, waitFor} from '@testing-library/react';
+import {userEvent} from '@testing-library/user-event';
 import TarotCard, {DisplayModes, Orientation} from './TarotCard';
 import {describe, it, expect, afterEach} from 'vitest';
 
@@ -8,7 +9,7 @@ describe('TarotCard Component', () => {
   });
 
   describe('Card Display', () => {
-    describe('Single Card Drawing', () => {
+    describe('Single Card Display', () => {
       it('renders the card fully', () => {
         render(
           <TarotCard
@@ -101,6 +102,7 @@ describe('TarotCard Component', () => {
         const reversedImage = screen.queryByTestId('tarot-card-image-reversed');
         const uprightText = screen.getByText('Up');
         const reversedText = screen.queryByText('Down');
+        const roleText = screen.queryByText('Your Doom');
 
         expect(uprightImage).toHaveProperty(
           'src',
@@ -109,6 +111,7 @@ describe('TarotCard Component', () => {
         expect(reversedImage).toBeFalsy();
         expect(uprightText).toBeTruthy();
         expect(reversedText).toBeFalsy();
+        expect(roleText).toBeFalsy();
       });
 
       it('renders the card with reversed orientation', () => {
@@ -127,6 +130,7 @@ describe('TarotCard Component', () => {
         const reversedImage = screen.getByTestId('tarot-card-image-reversed');
         const uprightText = screen.queryByText('Up');
         const reversedText = screen.getByText('Down');
+        const roleText = screen.queryByText('Your Doom');
 
         expect(uprightImage).toBeFalsy();
         expect(reversedImage).toHaveProperty(
@@ -135,9 +139,127 @@ describe('TarotCard Component', () => {
         );
         expect(uprightText).toBeFalsy();
         expect(reversedText).toBeTruthy();
+        expect(roleText).toBeFalsy();
+      });
+
+      it('renders the card with role text', () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_SINGLE}
+            orientation={Orientation.UPRIGHT}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+            roleText="Your Doom"
+          />
+        );
+
+        const uprightImage = screen.getByTestId('tarot-card-image-upright');
+        const reversedImage = screen.queryByTestId('tarot-card-image-reversed');
+        const uprightText = screen.getByText('Up');
+        const reversedText = screen.queryByText('Down');
+        const roleText = screen.getByText('Your Doom');
+
+        expect(uprightImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(reversedImage).toBeFalsy();
+        expect(uprightText).toBeTruthy();
+        expect(reversedText).toBeFalsy();
+        expect(roleText).toBeTruthy();
       });
     });
 
-    // Hover card is not used; we will implement tests once a user story is created.
+    describe('Single Card with Hover', () => {
+      it('renders the card with upright orientation', async () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_HOVER}
+            orientation={Orientation.UPRIGHT}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.getByTestId('tarot-card-image-upright');
+        const reversedImage = screen.queryByTestId('tarot-card-image-reversed');
+        const roleText = screen.queryByText('Your Doom');
+
+        expect(uprightImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(reversedImage).toBeFalsy();
+        expect(roleText).toBeFalsy();
+
+        await userEvent.hover(uprightImage);
+        await waitFor(() => {
+          expect(screen.getByRole('tooltip')).toBeVisible();
+        });
+      });
+
+      it('renders the card with reversed orientation', async () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_HOVER}
+            orientation={Orientation.REVERSED}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+          />
+        );
+
+        const uprightImage = screen.queryByTestId('tarot-card-image-upright');
+        const reversedImage = screen.getByTestId('tarot-card-image-reversed');
+        const roleText = screen.queryByText('Your Doom');
+
+        expect(uprightImage).toBeFalsy();
+        expect(reversedImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(roleText).toBeFalsy();
+
+        await userEvent.hover(reversedImage);
+        await waitFor(() => {
+          expect(screen.getByRole('tooltip')).toBeVisible();
+        });
+      });
+
+      it('renders the card with role text', async () => {
+        render(
+          <TarotCard
+            displayMode={DisplayModes.DRAW_HOVER}
+            orientation={Orientation.REVERSED}
+            title="The Arrow"
+            image="arrow.jpg"
+            uprightText="Up"
+            reversedText="Down"
+            roleText="Your Doom"
+          />
+        );
+
+        const uprightImage = screen.queryByTestId('tarot-card-image-upright');
+        const reversedImage = screen.getByTestId('tarot-card-image-reversed');
+        const roleText = screen.getByText('Your Doom');
+
+        expect(uprightImage).toBeFalsy();
+        expect(reversedImage).toHaveProperty(
+          'src',
+          expect.stringContaining('arrow.jpg')
+        );
+        expect(roleText).toBeTruthy();
+
+        await userEvent.hover(reversedImage);
+        await waitFor(() => {
+          expect(screen.getByRole('tooltip')).toBeVisible();
+        });
+      });
+    });
   });
 });

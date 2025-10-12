@@ -1,6 +1,7 @@
 import {JSX, useEffect, useState} from 'react';
+import {Button, Stack, styled} from '@mui/material';
 import {JournalEntry} from '../../data/journal';
-import {Button, Stack, styled, TextField} from '@mui/material';
+import ViewEntry from '../../components/ViewEntry/ViewEntry';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -69,45 +70,15 @@ function Read() {
   useEffect(() => {
     setStack(
       entries.map((entry, index) => (
-        <div key={index} className="journalEntry">
-          <TextField
-            label="Name"
-            variant="outlined"
-            value={entry.profileId}
-            slotProps={{
-              input: {
-                readOnly: true,
-              },
-            }}
-          />
-          <TextField
-            label="Date"
-            variant="outlined"
-            value={new Date(entry.date).toLocaleString()}
-            slotProps={{
-              input: {
-                readOnly: true,
-              },
-            }}
-          />
-          <TextField
-            label="Journal Entry"
-            multiline
-            rows={4}
-            value={entry.notes}
-            slotProps={{
-              input: {
-                readOnly: true,
-              },
-            }}
-          />
+        <div key={index}>
+          <ViewEntry entry={entry} />
         </div>
       ))
     );
   }, [entries]);
 
   return (
-    <div className="journalContainer">
+    <div>
       <Stack>{stack}</Stack>
       <Button component="label" variant="contained" tabIndex={-1}>
         Upload files
