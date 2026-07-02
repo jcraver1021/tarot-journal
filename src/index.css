@@ -1,9 +1,9 @@
 :root {
-  --color-bg: #80065f;
-  --color-element: #9e2308;
-  --color-highlight: #d9530b;
-  --color-shadow: #780606;
-  --color-fg: #eca985;
+  --color-bg: #1a0f2e;
+  --color-element: #2d1b4e;
+  --color-highlight: #d4af37;
+  --color-shadow: #0a0515;
+  --color-fg: #e8d4b8;
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,8 +11,6 @@
 
   color-scheme: light dark;
   color: var(--color-fg);
-  background-size: cover;
-  background-image: url('../../nyxx-tape-6ax81cLilAQ-unsplash.jpg');
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,4 +24,66 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 120% 100% at 50% 20%,
+      rgba(45, 27, 78, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(ellipse 80% 80% at 50% 50%, #1a0f2e 0%, #0f0820 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(212, 175, 55, 0.03) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(212, 175, 55, 0.02) 0%,
+      transparent 25%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }

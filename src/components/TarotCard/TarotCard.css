@@ -1,24 +1,31 @@
 .tarotCard {
-  box-shadow: 0 2px 4px var(--color-shadow);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   max-width: 300px;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.tarotCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
 }
 
 .tarotCardMedia {
   height: auto;
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-shadow);
+  background-color: var(--color-element);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .tarotCardTitle {
   text-align: center;
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-shadow);
+  background-color: var(--color-element);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .tarotCardContent {
   text-align: center;
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-shadow);
+  background-color: var(--color-element);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--color-fg);
 }

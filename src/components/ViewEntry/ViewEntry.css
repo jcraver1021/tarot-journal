@@ -1,6 +1,32 @@
 .viewEntry {
   background-color: var(--color-element);
-  border: 1px solid var(--color-highlight);
-  margin-bottom: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
   width: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.viewEntry .MuiOutlinedInput-root {
+  color: var(--color-fg);
+}
+
+.viewEntry .MuiOutlinedInput-input {
+  color: var(--color-fg);
+}
+
+.viewEntry .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.viewEntry .MuiInputLabel-root {
+  color: var(--color-fg);
+  opacity: 0.7;
+}
+
+.viewEntry .MuiInputBase-input.Mui-disabled {
+  color: var(--color-fg);
+  -webkit-text-fill-color: var(--color-fg);
+  opacity: 0.9;
 }

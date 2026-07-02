@@ -10,7 +10,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
