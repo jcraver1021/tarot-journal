@@ -76,9 +76,7 @@ export default function TarotCard({
           <Card>
             {roleText && (
               <CardContent className="tarotCardContent">
-                <Typography variant="body2" color="text.secondary">
-                  {roleText}
-                </Typography>
+                <Typography variant="body2">{roleText}</Typography>
               </CardContent>
             )}
             <CardMedia
