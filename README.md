@@ -93,3 +93,7 @@ review it.
 
 [gh-issue]: https://github.com/jcraver1021/tarot-journal/issues
 [gh-pr]: https://github.com/jcraver1021/tarot-journal/pulls
+
+## Attributions
+
+Third-party assets and their licenses are documented in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
