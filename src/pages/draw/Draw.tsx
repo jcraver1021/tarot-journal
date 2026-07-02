@@ -95,6 +95,18 @@ function Draw() {
     return null;
   };
 
+  const isCelticCross = spread && getSpread(spread) === Spread.CelticCross;
+
+  if (isCelticCross && shuffledCards.length > 0) {
+    // Celtic Cross gets special layout for journaling visibility
+    return (
+      <div className="drawContainerCelticCross">
+        <div className="celticCrossContent">{getLayout()}</div>
+        <div className="celticCrossJournal">{getJournal()}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="drawContainer">
       {getLayout()}

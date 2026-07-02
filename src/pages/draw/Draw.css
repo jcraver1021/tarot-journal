@@ -1,18 +1,71 @@
 .drawContainer {
   min-width: 100vw;
   min-height: 100vh;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 40px 24px;
+}
+
+.drawContainer > * {
+  max-width: 1000px;
+  width: 100%;
 }
 
 .drawCards {
   display: flex;
-  gap: 16px;
-  align-items: center;
+  gap: 24px;
+  align-items: flex-start;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
 }
 
 .drawCard {
   display: flex;
+  flex: 0 1 auto;
+}
+
+/* Celtic Cross special layout for journaling visibility */
+.drawContainerCelticCross {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  gap: 32px;
+  padding: 24px;
+}
+
+.celticCrossContent {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding-right: 16px;
+}
+
+.celticCrossJournal {
+  width: 400px;
+  position: sticky;
+  top: 24px;
+  align-self: flex-start;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 1024px) {
+  .drawContainerCelticCross {
+    flex-direction: column;
+  }
+
+  .celticCrossContent {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  .celticCrossJournal {
+    width: 100%;
+    position: static;
+    max-height: none;
+  }
 }

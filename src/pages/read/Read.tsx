@@ -3,6 +3,8 @@ import {Button, Stack, styled} from '@mui/material';
 import {JournalEntry} from '../../data/journal';
 import ViewEntry from '../../components/ViewEntry/ViewEntry';
 
+import './Read.css';
+
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',
@@ -78,10 +80,12 @@ function Read() {
   }, [entries]);
 
   return (
-    <div>
-      <Stack>{stack}</Stack>
+    <div className="readContainer">
+      <Stack spacing={2} style={{width: '100%', maxWidth: '800px'}}>
+        {stack}
+      </Stack>
       <Button component="label" variant="contained" tabIndex={-1}>
-        Upload files
+        Upload Journal Files
         <VisuallyHiddenInput
           type="file"
           onChange={event => {

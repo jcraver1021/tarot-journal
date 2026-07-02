@@ -1,0 +1,144 @@
+.celticCrossContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.celticCrossTitle {
+  color: var(--color-highlight);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.celticCrossIntro {
+  color: var(--color-fg);
+  text-align: center;
+  max-width: 600px;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.celticCrossLayout {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+/* The main cross (left side) */
+.celticCrossMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Top position (Crown) */
+.ccTop {
+  display: flex;
+  justify-content: center;
+}
+
+/* Middle row containing Past, Center Cross, Future */
+.ccMiddleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ccLeft,
+.ccRight {
+  display: flex;
+  align-items: center;
+}
+
+/* Center crossed cards */
+.ccCenter {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ccCenterSelf {
+  position: absolute;
+  z-index: 1;
+}
+
+.ccCenterChallenge {
+  position: absolute;
+  z-index: 2;
+  transform: rotate(90deg);
+  opacity: 0.95;
+}
+
+/* Bottom position (Foundation) */
+.ccBottom {
+  display: flex;
+  justify-content: center;
+}
+
+/* The staff (right side) - vertical column of 4 cards */
+.celticCrossStaff {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.ccStaffCard {
+  display: flex;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .celticCrossLayout {
+    gap: 40px;
+  }
+
+  .ccCenter {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .celticCrossLayout {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .celticCrossMain {
+    width: 100%;
+  }
+
+  .celticCrossStaff {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .ccMiddleRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ccCenter {
+    width: 220px;
+    height: 220px;
+  }
+
+  .celticCrossStaff {
+    flex-direction: column;
+  }
+}

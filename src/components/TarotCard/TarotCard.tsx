@@ -60,10 +60,10 @@ export default function TarotCard({
               image={image}
             />
             <CardContent className="tarotCardContent">
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2">
                 {`Upright: ${uprightText}`}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2">
                 {`Reversed: ${reversedText}`}
               </Typography>
             </CardContent>
@@ -76,9 +76,7 @@ export default function TarotCard({
           <Card>
             {roleText && (
               <CardContent className="tarotCardContent">
-                <Typography variant="body2" color="text.secondary">
-                  {roleText}
-                </Typography>
+                <Typography variant="body2">{roleText}</Typography>
               </CardContent>
             )}
             <CardMedia
@@ -97,7 +95,7 @@ export default function TarotCard({
               }
             />
             <CardContent className="tarotCardContent">
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2">
                 {orientation === Orientation.REVERSED
                   ? reversedText
                   : uprightText}
@@ -117,9 +115,7 @@ export default function TarotCard({
             <Card>
               {roleText && (
                 <CardContent className="tarotCardContent">
-                  <Typography variant="body2" color="text.secondary">
-                    {roleText}
-                  </Typography>
+                  <Typography variant="body2">{roleText}</Typography>
                 </CardContent>
               )}
               <CardMedia
