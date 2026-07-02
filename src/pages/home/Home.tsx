@@ -6,31 +6,32 @@ import './Home.css';
 function Home() {
   return (
     <div className="home">
-      <Stack>
+      <Stack spacing={5} className="homeContent">
         <Banner text="Tarot Journal" level={1} />
-        <Stack direction="row" spacing={2}>
-          <Stack>
-            <Banner text="Draw" level={2} />
-            <Button variant="contained" href="/draw/single">
+
+        <Stack spacing={3} className="homeSection">
+          <Banner text="Draw Cards" level={2} />
+          <Stack spacing={2} className="buttonGroup">
+            <Button variant="outlined" href="/draw/single">
               One Card
             </Button>
-            <Button variant="contained" href="/draw/three">
+            <Button variant="outlined" href="/draw/three">
               Three Cards
             </Button>
-            <Button variant="contained" href="/draw/celtic-cross">
+            <Button variant="outlined" href="/draw/celtic-cross">
               Celtic Cross
             </Button>
           </Stack>
-          <Stack>
-            <Banner text="Review" level={2} />
-            <Button variant="contained" href="/read">
+        </Stack>
+
+        <Stack spacing={3} className="homeSection">
+          <Banner text="Review & Explore" level={2} />
+          <Stack spacing={2} className="buttonGroup">
+            <Button variant="outlined" href="/read">
               Read your Journal
             </Button>
-          </Stack>
-          <Stack>
-            <Banner text="Explore" level={2} />
-            <Button variant="contained" href="/card/0">
-              View Cards
+            <Button variant="outlined" href="/card/0">
+              View All Cards
             </Button>
           </Stack>
         </Stack>

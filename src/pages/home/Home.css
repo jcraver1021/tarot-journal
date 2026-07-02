@@ -6,4 +6,43 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 24px;
+}
+
+.homeContent {
+  max-width: 600px;
+  width: 100%;
+}
+
+.homeSection {
+  width: 100%;
+}
+
+.buttonGroup {
+  width: 100%;
+}
+
+.buttonGroup .MuiButton-outlined {
+  width: 100%;
+  justify-content: center;
+}
+
+.home .MuiButton-outlined {
+  border-color: var(--color-highlight);
+  color: var(--color-fg);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.home .MuiButton-outlined:hover {
+  border-color: var(--color-fg);
+  background-color: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.home .MuiButton-outlined:active {
+  transform: translateY(0);
 }

@@ -1,18 +1,27 @@
 .drawContainer {
   min-width: 100vw;
   min-height: 100vh;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 40px 24px;
+}
+
+.drawContainer > * {
+  max-width: 1000px;
+  width: 100%;
 }
 
 .drawCards {
   display: flex;
-  gap: 16px;
-  align-items: center;
+  gap: 24px;
+  align-items: flex-start;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
 }
 
 .drawCard {
   display: flex;
+  flex: 0 1 auto;
 }
