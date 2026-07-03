@@ -89,8 +89,29 @@ To run in dev mode,
 
 #### Hosted deployment
 
-I will consider hosting the application in the future, but for now, local
-deployment is the only option.
+The application is hosted on [Firebase Hosting][deploy-firebase] and available at:
+
+**[https://nimbus-tarot-journal.web.app][live-url]**
+
+Deployments happen automatically via [GitHub Actions][deploy-actions]:
+
+- **Production:** Merges to `main` deploy to the live site
+- **Preview:** Pull requests deploy to temporary preview URLs
+
+[deploy-firebase]: https://firebase.google.com/docs/hosting
+[deploy-actions]: https://github.com/jcraver1021/tarot-journal/actions
+[live-url]: https://nimbus-tarot-journal.web.app
+
+#### Manual deployment (maintainers only)
+
+To deploy manually to Firebase Hosting:
+
+```sh
+npm run build
+firebase deploy --only hosting
+```
+
+Requires Firebase CLI authentication and appropriate project permissions.
 
 ## Contribution and feedback
 
