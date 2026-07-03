@@ -38,6 +38,12 @@ function Home() {
             </Button>
           </Stack>
         </Stack>
+
+        <Stack spacing={2} className="disclaimerSection">
+          <Button variant="text" href="/disclaimer" className="disclaimerLink">
+            Disclaimer & Terms of Use
+          </Button>
+        </Stack>
       </Stack>
     </div>
   );

@@ -8,9 +8,10 @@ role of the dealer and offers space for journaling and reflection.
 ### Personal Philosophy
 
 The author of this application does not believe that tarot cards have any
-magical powers or supernatural connections. Rather, I find the randomness of
-drawing cards as well as the accumulated meanings associated with each card to
-be a helpful tool for reflection.
+magical powers or supernatural connections. This application is designed
+solely as a reflection tool that uses randomness and symbolic imagery to
+prompt personal contemplation, not to provide supernatural guidance, predict
+the future, or make decisions on your behalf.
 
 For instance, drawing `Death` would not make me think I'm about to die, but it
 would prompt me to think about what is ending, beginning, or changing in my
@@ -18,22 +19,34 @@ life today. Any card I draw would find something in my life to connect to, and
 I welcome that directing of my attention even though it may have no ultimate
 "meaning".
 
-Therefore use of this application implies that you consent to using it under
-these terms and you agree that any perceived connection to the supernatural is
-something you have imported yourself and that you do not hold the author
-responsible for that.
+**By using this application, you acknowledge and agree that:**
+
+1. Tarot cards have no supernatural power, magical properties, or ability to
+   predict or influence future events.
+2. Any perceived connection to supernatural forces is a product of your own
+   interpretation, not a feature or claim of this application.
+3. This tool is intended solely for personal reflection and contemplation, not
+   as a basis for making life decisions.
+4. The author bears no responsibility for any decisions, actions, or beliefs
+   you adopt based on your use of this application.
+
+If you do not accept these terms, do not use this application.
 
 ### Pages
 
 The application hosts the following pages:
 
 - `/`: Home page
-  - `/card/:id`: Card view page
-    - View the images and meanings of individual cards
-    - `id`, if included, will jump to the card with that index in the deck
-  - `/draw`: Card drawing methods
-    - `/draw/single`: Single card draw + journal
-  - `/read`: Open and view a set of journal entries
+- `/card/:id`: Card view page
+  - View the images and meanings of individual cards
+  - `id`, if included, will jump to the card with that index in the deck
+- `/draw/:spread`: Card drawing methods
+  - `/draw/single`: Single card draw + journal
+  - `/draw/three`: Three card spread + journal
+  - `/draw/celtic-cross`: Celtic Cross spread + journal
+- `/read`: Open and view journal entries
+- `/decks`: Manage card decks (built-in and custom uploads)
+- `/disclaimer`: Disclaimer and terms of use
 
 ## Technical details
 
