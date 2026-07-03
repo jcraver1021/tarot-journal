@@ -171,7 +171,7 @@ function UploadDeck({onClose, onUploadComplete}: UploadDeckProps) {
         Select Folder with Manifest
         <input
           type="file"
-          /* @ts-ignore */
+          /* @ts-expect-error - webkitdirectory is a non-standard attribute used for folder selection */
           webkitdirectory=""
           directory=""
           multiple
