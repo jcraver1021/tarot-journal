@@ -33,6 +33,9 @@ function Home() {
             <Button variant="outlined" href="/card/0">
               View All Cards
             </Button>
+            <Button variant="outlined" href="/decks">
+              Manage Decks
+            </Button>
           </Stack>
         </Stack>
       </Stack>

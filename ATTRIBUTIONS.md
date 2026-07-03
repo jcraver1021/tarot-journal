@@ -2,33 +2,33 @@
 
 This file contains attribution information for third-party assets used in Tarot Journal.
 
-## Card Images
+## Built-in Decks
 
 ### Rider-Waite Deck
+
 - **Location**: `public/card/rw/`
-- **Source**: [Source URL or description]
-- **License**: Public Domain / [License name]
-- **Attribution**: [Artist/Creator name if required]
+- **Format**: PNG
+- **Source**: [TODO: Add source URL or description]
+- **License**: Public Domain (original artwork published 1909-1910)
+- **Artist**: Pamela Colman Smith (original 1909 artwork)
+- **Notes**: [TODO: Verify and specify the source of these specific scans/images]
 
-## Background Images
+## Custom Decks
 
-### Homepage Background
-- **File**: `public/nyxx-tape-6ax81cLilAQ-unsplash.jpg`
-- **Photographer**: [Photographer name]
-- **Source**: [Unsplash URL]
-- **License**: Unsplash License
-- **Attribution**: Photo by [Photographer name] on Unsplash
+Users can upload their own tarot card images through the deck management interface. Custom decks are stored locally in the browser and are never uploaded to any server.
+
+**Important**: Users are responsible for ensuring they have the right to use any images they upload. Only upload images you own or have permission to use.
 
 ---
 
-## How to Add New Attributions
+## How to Complete This File
 
-When adding new card images or assets:
+For each deck marked with `[TODO]`, please provide:
 
-1. Add an entry to the appropriate section above
-2. Include:
-   - Location/path of the asset
-   - Source (URL or description)
-   - License type
-   - Required attribution text (if any)
-3. If the license requires attribution in the UI, add it to the README or a dedicated Credits page
+1. **Source**: Where you obtained the images (website URL, artist page, purchase link, etc.)
+2. **License**: The specific license (e.g., "Public Domain", "CC-BY 4.0", "Artist's custom license", "Personal use only", etc.)
+3. **Artist/Creator**: Full name of the person or organization who created the artwork
+4. **Attribution**: If the license requires specific attribution text, include it exactly as specified
+5. **Notes**: Any additional context (e.g., "Downloaded from artist's portfolio", "Purchased from Etsy", "Public domain scans from Sacred Texts", etc.)
+
+If you created any of these images yourself or they are Public Domain with no restrictions, please note that as well.
