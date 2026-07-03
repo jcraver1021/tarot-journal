@@ -94,6 +94,7 @@ The application is hosted on [Firebase Hosting][deploy-firebase] and available a
 **[https://nimbus-tarot-journal.web.app][live-url]**
 
 Deployments happen automatically via [GitHub Actions][deploy-actions]:
+
 - **Production:** Merges to `main` deploy to the live site
 - **Preview:** Pull requests deploy to temporary preview URLs
 
