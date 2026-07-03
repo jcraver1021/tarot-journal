@@ -1,32 +1,18 @@
 import {useState, useEffect} from 'react';
-import {cards as RWCards} from '../../data/cards-rw';
+import {useActiveDeck, Card, CardSet} from '../decks/decks';
 
 const defaultReversalRate = 0.05;
 
-export interface CardSet {
-  id: string;
-  name: string;
-  cards: Card[];
-}
+// Re-export types for backward compatibility
+export type {Card, CardSet};
 
-export const CardSets: CardSet[] = [
-  {id: 'RW', name: 'Rider-Waite', cards: RWCards},
-];
-
-export interface Card {
-  id: string;
-  name: string;
-  category: string;
-  path: string;
-  meaningUpright: string;
-  meaningReversed: string;
-  isReversed?: boolean; // Optional property to indicate if the card is reversed
-}
-
+/**
+ * Get cards from the currently active deck
+ * Works with both built-in and custom uploaded decks
+ */
 export function useCards() {
-  const [cards] = useState<Card[]>(CardSets[0].cards);
-
-  return cards;
+  const {activeDeck} = useActiveDeck();
+  return activeDeck?.cards || [];
 }
 
 export function useGetShuffledCards(
